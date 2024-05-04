@@ -1,9 +1,14 @@
-function App() {
+import Tile from "./components/Tile";
+
+const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline bg-red-500">
-      Hello world!
-    </h1>
-  )
-}
+    <div className="bg-cream h-screen w-screen">
+      <h1 className="text-3xl font-bold text-center py-4 text-blue">
+        Items Grid
+      </h1>
+      <Tile />
+    </div>
+  );
+};
 
 export default App;
