@@ -9,8 +9,6 @@ const Search = () => {
       radius="lg"
       placeholder="Search for items..."
       size="md"
-      // isInvalid={true}
-      // errorMessage="Please enter a valid email"
       classNames={{
         base: [
           "lg:w-1/3",
@@ -20,7 +18,7 @@ const Search = () => {
           "justify-center",
           "lg:justify-end",
         ],
-        mainWrapper: "w-full",
+        mainWrapper: "w-full items-center justify-center",
         label: "text-black/50 dark:text-white/90",
         input: [
           "bg-transparent",

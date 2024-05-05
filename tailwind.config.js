@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        responsive: "repeat(auto-fill, minmax(300px, 1fr))",
+        responsive: "repeat(auto-fill, minmax(450px, 1fr))",
       },
     },
     colors: {
