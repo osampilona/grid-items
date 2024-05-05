@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardBody } from "@nextui-org/card";
-import { Image } from "@nextui-org/react";
 import items from "../data/grid-items.json";
+import { Image } from "@nextui-org/react";
 import { RootState } from "../state/store";
 import { useSelector } from "react-redux";
 
@@ -19,6 +19,10 @@ const Tiles = () => {
     (state: RootState) => state.pagination.showAllItems
   );
 
+  const filteredItems = useSelector(
+    (state: RootState) => state.search.filteredItems
+  );
+
   const getCurrentPageItems = (currentPage: number) => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -26,8 +30,21 @@ const Tiles = () => {
   };
   const currentPageItems = getCurrentPageItems(currentPage);
 
-  let allItems = [];
-  if (!showAllItems) {
+  let allItems: {
+    title: string;
+    description: string;
+    imagePath: string;
+  }[] = [];
+  console.log("Filtered Items Length:", filteredItems.length);
+  console.log("Show All Items:", showAllItems);
+  console.log("Current Page Items Length:", currentPageItems.length);
+
+  if (filteredItems.length > 0) {
+    allItems = filteredItems;
+  } else if (
+    !showAllItems &&
+    (!filteredItems.length || filteredItems.length === 0)
+  ) {
     allItems = currentPageItems;
   } else {
     allItems = items;
