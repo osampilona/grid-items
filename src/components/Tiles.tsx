@@ -1,13 +1,32 @@
 import { Card, CardHeader, CardBody } from "@nextui-org/card";
 import { Image } from "@nextui-org/react";
 import items from "../data/grid-items.json";
+import { RootState } from "../state/store";
+import { useSelector } from "react-redux";
 
-const Tile = () => {
+const Tiles = () => {
+  const totalNumberOfItems = items.length;
+  const totalPagesNumber = useSelector(
+    (state: RootState) => state.pagination.totalPages
+  );
+  const itemsPerPage = Math.ceil(totalNumberOfItems / totalPagesNumber);
+
+  const currentPage = useSelector(
+    (state: RootState) => state.pagination.currentPage
+  );
+
+  const getCurrentPageItems = (currentPage: number) => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return items.slice(startIndex, endIndex);
+  };
+  const currentPageItems = getCurrentPageItems(currentPage);
+
   return (
     <div className="grid grid-cols-responsive gap-4 px-4 z-10">
-      {items.map((item, index) => (
+      {currentPageItems.map((item, index) => (
         <Card
-          className="bg-white p-4 flex flex-row items-start space-x-4"
+          className="bg-white p-2 flex flex-row items-start space-x-4"
           key={index}
         >
           <Image
@@ -32,4 +51,4 @@ const Tile = () => {
   );
 };
 
-export default Tile;
+export default Tiles;
