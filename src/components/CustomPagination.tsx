@@ -20,7 +20,7 @@ const CustomPagination = () => {
   );
 
   return (
-    <>
+    <div className="flex flex-col items-center">
       {!showAllItems && (
         <Pagination
           total={totalPagesNumber}
@@ -39,7 +39,7 @@ const CustomPagination = () => {
       >
         {!showAllItems ? "Show All Items" : "Show Paginated Items"}
       </button>
-    </>
+    </div>
   );
 };
 

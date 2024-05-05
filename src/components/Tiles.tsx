@@ -34,7 +34,7 @@ const Tiles = () => {
   }
 
   return (
-    <div className="grid grid-cols-responsive gap-4 px-4 z-10">
+    <div className="grid w-full lg:grid-cols-responsive gap-4 gap-4 z-10">
       {allItems.map((item, index) => (
         <Card
           className="bg-white p-2 flex flex-row items-start space-x-4"
