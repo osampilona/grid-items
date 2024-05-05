@@ -15,6 +15,10 @@ const Tiles = () => {
     (state: RootState) => state.pagination.currentPage
   );
 
+  const showAllItems = useSelector(
+    (state: RootState) => state.pagination.showAllItems
+  );
+
   const getCurrentPageItems = (currentPage: number) => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -22,9 +26,16 @@ const Tiles = () => {
   };
   const currentPageItems = getCurrentPageItems(currentPage);
 
+  let allItems = [];
+  if (!showAllItems) {
+    allItems = currentPageItems;
+  } else {
+    allItems = items;
+  }
+
   return (
     <div className="grid grid-cols-responsive gap-4 px-4 z-10">
-      {currentPageItems.map((item, index) => (
+      {allItems.map((item, index) => (
         <Card
           className="bg-white p-2 flex flex-row items-start space-x-4"
           key={index}
@@ -38,7 +49,7 @@ const Tiles = () => {
             className="w-24 h-24 object-cover rounded-lg max-w-none"
           />
           <div className="flex flex-col gap-2 text-blue">
-            <CardHeader className="text-l font-semibold py-0 px-0">
+            <CardHeader className="text-l font-semibold py-0 px-0 hover:text-skyBlue">
               {item.title}
             </CardHeader>
             <CardBody className="text-sm py-0 px-0 text-grey">
