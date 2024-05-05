@@ -13,6 +13,7 @@ export default {
     },
     colors: {
       blue: "#199BD7",
+      skyBlue: "#32bcff",
       cream: "#F0F0F0",
       white: "#FFFFFF",
       grey: "#444444",
