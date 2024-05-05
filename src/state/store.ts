@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import paginationReducer from "./pagination/paginationSlice";
+import searchReducer from "./search/searchSlice";
 
 export const store = configureStore({
   reducer: {
     pagination: paginationReducer,
+    search: searchReducer,
   },
 });
 
