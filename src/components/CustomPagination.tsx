@@ -5,6 +5,7 @@ import {
   setShowAllItems,
 } from "../state/pagination/paginationSlice";
 import { RootState } from "../state/store";
+import { Button } from "@nextui-org/react";
 
 const CustomPagination = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,16 @@ const CustomPagination = () => {
 
   return (
     <div className="flex flex-col items-center">
-      {isSearching && filteredItems.length === 0 ? null : (
+      {isSearching && filteredItems.length === 0 ? (
+        <div className="flex flex-col gap-4 text-center">
+          <h1 className="text-4xl text-hot font-bold">
+            Oh no, no items found in search.
+          </h1>
+          <h3 className="text-xl text-red font-semibold">
+            Please try again with a different search term.
+          </h3>
+        </div>
+      ) : (
         <div className="flex flex-col items-center">
           {!showAllItems && (
             <Pagination
@@ -43,12 +53,12 @@ const CustomPagination = () => {
               radius="full"
             />
           )}
-          <button
+          <Button
             className="m-4 border-2 py-2 px-4 cursor-pointer rounded-3xl border-cream text-cream bg-blue hover:bg-skyBlue"
             onClick={() => dispatch(setShowAllItems())}
           >
             {!showAllItems ? "Show All Items" : "Collaps All Items"}
-          </button>
+          </Button>
         </div>
       )}
     </div>
