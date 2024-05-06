@@ -3,17 +3,35 @@ import items from "../data/grid-items.json";
 import SearchIcon from "../icons/SearchIcon";
 import { RootState } from "../state/store";
 import { useSelector, useDispatch } from "react-redux";
-import { setFilteredItems, setSearchTerm } from "../state/search/searchSlice";
+import {
+  setFilteredItems,
+  setSearchTerm,
+  setIsSearching,
+} from "../state/search/searchSlice";
+import { useEffect } from "react";
 
 const Search = () => {
   const dispatch = useDispatch();
-
   const searchTerm = useSelector((state: RootState) => state.search.searchTerm);
 
-  const filteredItem = items.filter((item) => {
-    const regex = new RegExp(`(?:^|\\s)${searchTerm.toLowerCase()}`, "i");
-    return regex.test(item.title.toLowerCase());
-  });
+  useEffect(() => {
+    const filteredItem = items.filter((item) => {
+      const regex = new RegExp(
+        `(?:^|\\W)${searchTerm
+          .trim()
+          .replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&")}`,
+        "i"
+      );
+      return regex.test(item.title);
+    });
+
+    dispatch(setFilteredItems(filteredItem));
+    dispatch(setIsSearching(searchTerm.length > 0));
+
+    if (filteredItem.length === 0 && searchTerm.length > 0) {
+      console.log("No matches found for the search term.");
+    }
+  }, [searchTerm, dispatch]);
 
   return (
     <>
@@ -24,13 +42,10 @@ const Search = () => {
         placeholder="Search for items..."
         size="md"
         value={searchTerm}
-        onChange={(e) => {
-          dispatch(setSearchTerm(e.target.value));
-          dispatch(setFilteredItems(filteredItem));
-        }}
+        onChange={(e) => dispatch(setSearchTerm(e.target.value))}
         onClear={() => {
           dispatch(setSearchTerm(""));
-          dispatch(setFilteredItems([]));
+          dispatch(setIsSearching(false));
         }}
         classNames={{
           base: [

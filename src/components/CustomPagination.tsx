@@ -19,26 +19,38 @@ const CustomPagination = () => {
     (state: RootState) => state.pagination.showAllItems
   );
 
+  const filteredItems = useSelector(
+    (state: RootState) => state.search.filteredItems
+  );
+
+  const isSearching = useSelector(
+    (state: RootState) => state.search.isSearching
+  );
+
   return (
     <div className="flex flex-col items-center">
-      {!showAllItems && (
-        <Pagination
-          total={totalPagesNumber}
-          initialPage={initialPage}
-          onChange={(page) => dispatch(setCurrentPage(page))}
-          className="mx-auto my-4 place-content-center w-max"
-          classNames={{
-            item: "bg-white text-blue",
-          }}
-          radius="full"
-        />
+      {isSearching && filteredItems.length === 0 ? null : (
+        <div className="flex flex-col items-center">
+          {!showAllItems && (
+            <Pagination
+              total={totalPagesNumber}
+              initialPage={initialPage}
+              onChange={(page) => dispatch(setCurrentPage(page))}
+              className="mx-auto my-4 place-content-center w-max"
+              classNames={{
+                item: "bg-white text-blue",
+              }}
+              radius="full"
+            />
+          )}
+          <button
+            className="m-4 border-2 py-2 px-4 cursor-pointer rounded-3xl border-cream text-cream bg-blue hover:bg-skyBlue"
+            onClick={() => dispatch(setShowAllItems())}
+          >
+            {!showAllItems ? "Show All Items" : "Collaps All Items"}
+          </button>
+        </div>
       )}
-      <button
-        className="m-4 border-2 py-2 px-4 cursor-pointer rounded-3xl border-cream text-cream bg-blue hover:bg-skyBlue"
-        onClick={() => dispatch(setShowAllItems())}
-      >
-        {!showAllItems ? "Show All Items" : "Collaps All Items"}
-      </button>
     </div>
   );
 };
