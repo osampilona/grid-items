@@ -17,6 +17,8 @@ export default {
       cream: "#F0F0F0",
       white: "#FFFFFF",
       grey: "#444444",
+      red: "#FF4D4D",
+      hot: "#FF0000",
     },
   },
   darkMode: "class",
