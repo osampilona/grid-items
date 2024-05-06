@@ -76,16 +76,6 @@ const Tiles = () => {
           </Card>
         ))}
       </div>
-      {isSearching && filteredItems.length === 0 ? (
-        <div className="flex flex-col gap-4 text-center mb-32">
-          <h1 className="text-4xl text-hot font-bold">
-            Oh no, no items found in search.
-          </h1>
-          <h3 className="text-xl text-red font-semibold">
-            Please try again with a different search term.
-          </h3>
-        </div>
-      ) : null}
     </>
   );
 };
