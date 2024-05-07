@@ -31,7 +31,7 @@ const CustomPagination = () => {
   return (
     <div className="flex flex-col items-center">
       {isSearching && filteredItems.length === 0 ? (
-        <div className="flex flex-col gap-4 text-center">
+        <div className="flex flex-col gap-4 text-center h-screen items-center justify-center">
           <h1 className="text-4xl text-hot font-bold">
             Oh no, no items found in search.
           </h1>
