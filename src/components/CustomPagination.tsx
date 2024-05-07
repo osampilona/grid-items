@@ -45,6 +45,7 @@ const CustomPagination = () => {
             <Pagination
               total={totalPagesNumber}
               initialPage={initialPage}
+              showControls
               onChange={(page) => dispatch(setCurrentPage(page))}
               className="mx-auto my-4 place-content-center w-max"
               classNames={{
@@ -55,7 +56,7 @@ const CustomPagination = () => {
           )}
           <Button
             className="m-4 border-2 py-2 px-4 cursor-pointer rounded-3xl border-cream text-cream bg-blue hover:bg-skyBlue"
-            onClick={() => dispatch(setShowAllItems())}
+            onPress={() => dispatch(setShowAllItems())}
           >
             {!showAllItems ? "Show All Items" : "Collaps All Items"}
           </Button>

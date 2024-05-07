@@ -1,5 +1,4 @@
 import { Input } from "@nextui-org/react";
-import items from "../data/grid-items.json";
 import SearchIcon from "../icons/SearchIcon";
 import { RootState } from "../state/store";
 import { useSelector, useDispatch } from "react-redux";
@@ -13,6 +12,7 @@ import { useEffect } from "react";
 const Search = () => {
   const dispatch = useDispatch();
   const searchTerm = useSelector((state: RootState) => state.search.searchTerm);
+  const items = useSelector((state: RootState) => state.data.items);
 
   useEffect(() => {
     const filteredItem = items.filter((item) => {
