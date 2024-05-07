@@ -34,7 +34,6 @@ const Tiles = () => {
   };
   const currentPageItems = getCurrentPageItems(currentPage);
 
-  console.log("ITEMS LIST:: ", items);
   let allItems: {
     title: string;
     description: string;
