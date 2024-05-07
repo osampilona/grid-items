@@ -3,7 +3,7 @@ import Search from "./Search";
 
 const Navigation = () => {
   return (
-    <nav className="flex flex-col lg:flex-row justify-between w-full gap-4 py-8 lg:py-0 m-4">
+    <nav className="flex flex-col lg:flex-row justify-between w-full gap-4 py-8 lg:py-0 mb-4">
       <h1 className="text-3xl font-bold text-blue w-full flex items-center justify-center lg:justify-start">
         Items Grid
       </h1>
