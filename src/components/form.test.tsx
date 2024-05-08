@@ -28,24 +28,20 @@ describe("Form Component", () => {
 
   it("should allow input into form fields", async () => {
     userEvent.click(screen.getByRole("button", { name: "Add item" }));
-    await screen.findByText("Add new item to the list"); // Ensuring the modal is fully open
+    await screen.findByText("Add new item to the list");
 
     const imageInput = screen.getByTestId("imagePath");
     const titleInput = screen.getByTestId("title");
     const descriptionInput = screen.getByTestId("description");
 
-    // Ensure inputs are in view and focused before typing
     imageInput.focus();
     userEvent.clear(imageInput);
-    userEvent.type(imageInput, "");
 
     titleInput.focus();
     userEvent.clear(titleInput);
-    userEvent.type(titleInput, "");
 
     descriptionInput.focus();
     userEvent.clear(descriptionInput);
-    userEvent.type(descriptionInput, "");
 
     await waitFor(() => {
       expect(imageInput).toHaveValue("");
