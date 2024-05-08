@@ -5,27 +5,45 @@ describe("dataSlice", () => {
   const store = configureStore({ reducer: { data: dataReducer } });
 
   it("should set a new item", () => {
-    store.dispatch(
-      setItem({
-        title: "New Item",
-        description: "Description",
-        imagePath: "image.jpg",
-      })
-    );
+    const newItem = {
+      title: "New Item",
+      description: "Description",
+      imagePath: "image.jpg",
+    };
+    store.dispatch(setItem(newItem));
     const items = store.getState().data.items;
-    expect(items[0].title).toBe("New Item");
+    expect(items[0]).toEqual(newItem);
   });
 
   it("should set a new item to the first place in the array", () => {
-    store.dispatch(
-      setItem({
-        title: "First Item",
-        description: "Description",
-        imagePath: "image.jpg",
-      })
-    );
+    const firstItem = {
+      title: "First Item",
+      description: "Description",
+      imagePath: "image.jpg",
+    };
+    store.dispatch(setItem(firstItem));
+    const items = store.getState().data.items;
+    expect(items[0]).toEqual(firstItem);
+  });
+
+  it("should set a new item to the first place in the array when already existing items are present", () => {
+    const existingItem = {
+      title: "Existing Item",
+      description: "Description",
+      imagePath: "image.jpg",
+    };
+    const newFirstItem = {
+      title: "New First Item",
+      description: "Description",
+      imagePath: "image.jpg",
+    };
+
+    // Dispatch an initial item
+    store.dispatch(setItem(existingItem));
+    // Dispatch a new item
+    store.dispatch(setItem(newFirstItem));
 
     const items = store.getState().data.items;
-    expect(items[0].title).toBe("First Item");
+    expect(items[0]).toEqual(newFirstItem);
   });
 });
