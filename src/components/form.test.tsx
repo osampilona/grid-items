@@ -78,46 +78,4 @@ describe("Form Component", () => {
       expect(addButton).toBeInTheDocument();
     });
   });
-
-  // it("should clear input fields when the cancel button is clicked", async () => {
-  //   // Open the modal
-  //   userEvent.click(screen.getByRole("button", { name: "Add item" }));
-  //   await screen.findByText("Add new item to the list");
-
-  //   const imagePathInput = screen.getByTestId("imagePath") as HTMLInputElement;
-  //   const titleInput = screen.getByTestId("title") as HTMLInputElement;
-  //   const descriptionInput = screen.getByTestId(
-  //     "description"
-  //   ) as HTMLInputElement;
-
-  //   // Fill the input fields
-  //   await userEvent.type(
-  //     imagePathInput,
-  //     "https://static.vecteezy.com/vite/assets/photo-masthead-375-b8ae1548.webp"
-  //   );
-
-  //   await userEvent.type(titleInput, "Sample Title");
-  //   await userEvent.type(descriptionInput, "Sample Description");
-
-  //   // Assert initial values are as expected
-  //   expect(imagePathInput.value).toBe(
-  //     "https://static.vecteezy.com/vite/assets/photo-masthead-375-b8ae1548.webp"
-  //   );
-  //   expect(titleInput.value).toBe("Sample Title");
-  //   expect(descriptionInput.value).toBe("Sample Description");
-
-  //   // Click the cancel button
-  //   const cancelButton = screen.getByTestId("cancel");
-  //   userEvent.click(cancelButton);
-
-  //   // Wait for the inputs to be cleared
-  //   await waitFor(
-  //     () => {
-  //       expect(imagePathInput.value).toBe("");
-  //       expect(titleInput.value).toBe("");
-  //       expect(descriptionInput.value).toBe("");
-  //     },
-  //     { timeout: 1000 }
-  //   ); // Increase timeout if necessary
-  // });
 });
