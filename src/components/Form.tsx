@@ -48,6 +48,7 @@ const Form = () => {
               <ModalBody>
                 <Input
                   autoFocus
+                  data-testid="imagePath"
                   label="Image Address"
                   placeholder="Enter image address"
                   variant="bordered"
@@ -57,6 +58,7 @@ const Form = () => {
                 />
                 <Input
                   label="Title"
+                  data-testid="title"
                   placeholder="Enter the title"
                   variant="bordered"
                   isRequired
@@ -65,6 +67,7 @@ const Form = () => {
                 />
                 <Textarea
                   label="Description"
+                  data-testid="description"
                   variant="bordered"
                   placeholder="Enter your description"
                   disableAnimation
