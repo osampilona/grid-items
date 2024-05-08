@@ -27,7 +27,7 @@ describe("Search Component", () => {
   it("clears search term when clear button is clicked", () => {
     const inputElement = screen.getByPlaceholderText("Search for items...");
     fireEvent.change(inputElement, { target: { value: "test" } });
-    const clearButton = screen.getByTestId("clear-button"); // Assuming you set this test id in your component
+    const clearButton = screen.getByTestId("clear-button");
     fireEvent.click(clearButton);
     expect(inputElement).toHaveValue();
   });

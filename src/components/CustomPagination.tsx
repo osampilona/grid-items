@@ -32,10 +32,10 @@ const CustomPagination = () => {
     <div className="flex flex-col items-center">
       {isSearching && filteredItems.length === 0 ? (
         <div className="flex flex-col gap-4 text-center h-screen items-center justify-center">
-          <h1 className="text-4xl text-hot font-bold">
+          <h1 className="text-4xl text-hot font-bold" data-testId="no-found">
             Oh no, no items found in search.
           </h1>
-          <h3 className="text-xl text-red font-semibold">
+          <h3 className="text-xl text-red font-semibold" data-testId="no-found">
             Please try again with a different search term.
           </h3>
         </div>
@@ -43,6 +43,7 @@ const CustomPagination = () => {
         <div className="flex flex-col items-center">
           {!showAllItems && (
             <Pagination
+              data-testid="pagination-controls"
               total={totalPagesNumber}
               initialPage={initialPage}
               showControls
