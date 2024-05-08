@@ -2,23 +2,14 @@ import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
-import dataSlice from "../state/data/dataSlice";
 import Form from "./Form";
-
-// Creating a test Redux store
-const createStore = () =>
-  configureStore({
-    reducer: {
-      data: dataSlice,
-    },
-  });
+import { store } from "../state/store";
 
 describe("Form Component", () => {
   beforeEach(() => {
     // Render Form component wrapped with Provider for each test
     render(
-      <Provider store={createStore()}>
+      <Provider store={store}>
         <Form />
       </Provider>
     );
@@ -88,47 +79,45 @@ describe("Form Component", () => {
     });
   });
 
-  //   it("should clear input fields when the cancel button is clicked", async () => {
-  //     // Open the modal
-  //     userEvent.click(screen.getByRole("button", { name: "Add item" }));
-  //     await screen.findByText("Add new item to the list");
+  // it("should clear input fields when the cancel button is clicked", async () => {
+  //   // Open the modal
+  //   userEvent.click(screen.getByRole("button", { name: "Add item" }));
+  //   await screen.findByText("Add new item to the list");
 
-  //     const imagePathInput = screen.getByTestId("imagePath");
-  //     const titleInput = screen.getByTestId("title");
-  //     const descriptionInput = screen.getByTestId("description");
+  //   const imagePathInput = screen.getByTestId("imagePath") as HTMLInputElement;
+  //   const titleInput = screen.getByTestId("title") as HTMLInputElement;
+  //   const descriptionInput = screen.getByTestId(
+  //     "description"
+  //   ) as HTMLInputElement;
 
-  //     // Fill the input fields
-  //     await userEvent.type(
-  //       imagePathInput,
-  //       "https://static.vecteezy.com/vite/assets/photo-masthead-375-b8ae1548.webp"
-  //     );
-  //     await userEvent.type(titleInput, "Sample Title");
-  //     await userEvent.type(descriptionInput, "Sample Description");
+  //   // Fill the input fields
+  //   await userEvent.type(
+  //     imagePathInput,
+  //     "https://static.vecteezy.com/vite/assets/photo-masthead-375-b8ae1548.webp"
+  //   );
 
-  //     // Assert initial values are as expected
-  //     expect(imagePathInput).toHaveValue(
-  //       "https://static.vecteezy.com/vite/assets/photo-masthead-375-b8ae1548.webp"
-  //     );
-  //     expect(titleInput).toHaveValue("Sample Title");
-  //     expect(descriptionInput).toHaveValue("Sample Description");
+  //   await userEvent.type(titleInput, "Sample Title");
+  //   await userEvent.type(descriptionInput, "Sample Description");
 
-  //     // Click the cancel button
-  //     const cancelButton = screen.getByTestId("cancel");
-  //     userEvent.click(cancelButton);
+  //   // Assert initial values are as expected
+  //   expect(imagePathInput.value).toBe(
+  //     "https://static.vecteezy.com/vite/assets/photo-masthead-375-b8ae1548.webp"
+  //   );
+  //   expect(titleInput.value).toBe("Sample Title");
+  //   expect(descriptionInput.value).toBe("Sample Description");
 
-  //     // Wait for the inputs to be cleared
-  //     await waitFor(
-  //       () => {
-  //         expect(imagePathInput).toHaveValue("");
-  //         expect(titleInput).toHaveValue("");
-  //         expect(descriptionInput).toHaveValue("");
-  //       },
-  //       { timeout: 1000 }
-  //     ); // Increase timeout if necessary
+  //   // Click the cancel button
+  //   const cancelButton = screen.getByTestId("cancel");
+  //   userEvent.click(cancelButton);
 
-  //     // Debug output after interaction
-  //     screen.debug(imagePathInput);
-  //     screen.debug(titleInput);
-  //     screen.debug(descriptionInput);
-  //   });
+  //   // Wait for the inputs to be cleared
+  //   await waitFor(
+  //     () => {
+  //       expect(imagePathInput.value).toBe("");
+  //       expect(titleInput.value).toBe("");
+  //       expect(descriptionInput.value).toBe("");
+  //     },
+  //     { timeout: 1000 }
+  //   ); // Increase timeout if necessary
+  // });
 });

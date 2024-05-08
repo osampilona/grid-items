@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "vitest --coverage --ui"
+    "test": "vitest --coverage --ui "
   },
   "dependencies": {
     "@nextui-org/react": "^2.3.6",
@@ -38,5 +38,13 @@
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vitest": "^1.6.0"
+  },
+  "vitest": {
+    "coverage": {
+      "exclude": [
+        "**/postcss.config.js",
+        "**/tailwind.config.js"
+      ]
+    }
   }
 }
