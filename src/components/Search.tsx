@@ -49,6 +49,7 @@ const Search = () => {
       role="search"
       startContent={<SearchIcon />}
       isClearable
+      data-testId="clear-button"
       radius="lg"
       placeholder="Search for items..."
       size="md"
