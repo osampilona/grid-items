@@ -46,6 +46,7 @@ const Search = () => {
 
   return (
     <Input
+      role="search"
       startContent={<SearchIcon />}
       isClearable
       radius="lg"
