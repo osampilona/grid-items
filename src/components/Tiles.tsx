@@ -55,6 +55,7 @@ const Tiles = () => {
       <div className="grid w-full lg:grid-cols-responsive gap-4 gap-4 z-10">
         {allItems.map((item, index) => (
           <Card
+            data-testid="card"
             className="bg-white p-2 flex flex-row items-start space-x-4"
             key={index}
           >
