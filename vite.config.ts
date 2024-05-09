@@ -1,15 +1,21 @@
-///<reference types="vitest" />
-///<reference types="vite/client" />
-
+// vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { coverageConfigDefaults } from "vitest/config";
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   test: {
     globals: true,
     environment: "jsdom",
     setupFiles: "./src/test/setup.ts",
+    include: ["**/*.test.tsx", "**/*.spec.tsx"],
+    coverage: {
+      exclude: [
+        "postcss.config.js",
+        "tailwind.config.js",
+        ...coverageConfigDefaults.exclude,
+      ],
+    },
   },
 });
