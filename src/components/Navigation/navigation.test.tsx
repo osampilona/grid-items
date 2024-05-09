@@ -29,7 +29,7 @@ describe("Navigation Component", () => {
   });
 
   it("should have correct class names for layout", () => {
-    const navigationElement = screen.getByRole("navigation");
+    const navigationElement = screen.getByRole("header");
     expect(navigationElement).toHaveClass(
       "flex",
       "flex-col",

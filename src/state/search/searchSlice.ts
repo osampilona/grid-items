@@ -1,12 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Item } from "../../types/reduxTypes";
 
 interface SearchState {
   searchTerm: string;
-  filteredItems: {
-    title: string;
-    description: string;
-    imagePath: string;
-  }[];
+  filteredItems: Item[];
   isSearching: boolean;
 }
 
@@ -21,7 +18,12 @@ const searchSlice = createSlice({
   initialState,
   reducers: {
     setSearchTerm: (state, action) => {
-      state.searchTerm = action.payload;
+      const newSearchTerm = action.payload;
+      state.searchTerm = newSearchTerm;
+      if (!newSearchTerm) {
+        state.filteredItems = [];
+        state.isSearching = false;
+      }
     },
     setFilteredItems: (state, action) => {
       if (!state.searchTerm && !state.isSearching) {
@@ -29,6 +31,7 @@ const searchSlice = createSlice({
         state.isSearching = false;
       } else {
         state.filteredItems = action.payload;
+        state.isSearching = true;
       }
     },
     setIsSearching: (state, action) => {

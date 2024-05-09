@@ -7,7 +7,8 @@ import {
   setSearchTerm,
   setIsSearching,
 } from "../../state/search/searchSlice";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
+import debounce from "lodash.debounce";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -17,32 +18,35 @@ const Search = () => {
     (state: RootState) => state.pagination.currentPage
   );
 
-  useEffect(() => {
-    if (searchTerm.length === 0) {
+  const debouncedSearchTerm = debounce((term) => {
+    if (term.length === 0) {
       dispatch(setFilteredItems(currentPageItems));
       dispatch(setIsSearching(false));
     } else {
-      const filteredItem = items.filter((item) =>
-        item.title.toLowerCase().startsWith(searchTerm.trim().toLowerCase())
+      const filteredItems = items.filter((item) =>
+        item.title.toLowerCase().startsWith(term.trim().toLowerCase())
       );
-      dispatch(setFilteredItems(filteredItem));
+      dispatch(setFilteredItems(filteredItems));
       dispatch(setIsSearching(true));
     }
-  }, [searchTerm, dispatch, items, currentPageItems]);
+  }, 300);
 
-  const handleSearchTermChange = (newSearchTerm: string) => {
-    if (newSearchTerm.length === 0) {
-      dispatch(setFilteredItems(currentPageItems));
-      dispatch(setIsSearching(false));
-    }
-    dispatch(setSearchTerm(newSearchTerm));
-  };
+  useEffect(() => {
+    debouncedSearchTerm(searchTerm);
+  }, [searchTerm, items, currentPageItems, debouncedSearchTerm]);
 
-  const handleClearSearch = () => {
+  const handleSearchTermChange = useCallback(
+    (newSearchTerm: string) => {
+      dispatch(setSearchTerm(newSearchTerm));
+    },
+    [dispatch]
+  );
+
+  const handleClearSearch = useCallback(() => {
     dispatch(setSearchTerm(""));
     dispatch(setFilteredItems(currentPageItems));
     dispatch(setIsSearching(false));
-  };
+  }, [dispatch, currentPageItems]);
 
   return (
     <Input

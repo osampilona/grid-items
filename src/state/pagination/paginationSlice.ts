@@ -3,14 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 interface PaginationState {
   currentPage: number;
   totalPages: number;
-  inititalPage: number;
+  initialPage: number;
   showAllItems: boolean;
 }
 
 const initialState: PaginationState = {
   currentPage: 1,
   totalPages: 5,
-  inititalPage: 1,
+  initialPage: 1,
   showAllItems: false,
 };
 
