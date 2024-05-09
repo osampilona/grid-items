@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
 import CustomPagination from "./components/CustomPagination/CustomPagination";
-import Navigation from "./components/Navigation/Navigation";
+import Navigation from "./components/Header/Header";
 import Tiles from "./components/Tiles/Tiles";
 import { store } from "./state/store";
 

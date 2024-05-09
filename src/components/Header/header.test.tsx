@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
-import Navigation from "./Navigation";
+import Navigation from "./Header";
 import { Provider } from "react-redux";
 import { store } from "../../state/store";
 
