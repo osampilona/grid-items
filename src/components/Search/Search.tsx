@@ -1,12 +1,12 @@
 import { Input } from "@nextui-org/react";
-import SearchIcon from "../icons/SearchIcon";
-import { RootState } from "../state/store";
+import SearchIcon from "../../icons/SearchIcon";
+import { RootState } from "../../state/store";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setFilteredItems,
   setSearchTerm,
   setIsSearching,
-} from "../state/search/searchSlice";
+} from "../../state/search/searchSlice";
 import { useEffect } from "react";
 
 const Search = () => {

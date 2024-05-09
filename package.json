@@ -38,13 +38,5 @@
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vitest": "^1.6.0"
-  },
-  "vitest": {
-    "coverage": {
-      "exclude": [
-        "/postcss.config.js",
-        "/tailwind.config.js"
-      ]
-    }
   }
 }

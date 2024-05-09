@@ -3,11 +3,10 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import Form from "./Form";
-import { store } from "../state/store";
+import { store } from "../../state/store";
 
 describe("Form Component", () => {
   beforeEach(() => {
-    // Render Form component wrapped with Provider for each test
     render(
       <Provider store={store}>
         <Form />
@@ -23,7 +22,7 @@ describe("Form Component", () => {
   it('should open the modal when "Add item" button is clicked', async () => {
     const addButton = screen.getByRole("button", { name: "Add item" });
     userEvent.click(addButton);
-    await screen.findByText("Add new item to the list"); // Check if modal header is present
+    await screen.findByText("Add new item to the list");
   });
 
   it("should allow input into form fields", async () => {
@@ -51,9 +50,9 @@ describe("Form Component", () => {
   });
 
   it("should submit the form and close the modal", async () => {
-    const addButton = screen.getByRole("button", { name: "Add item" }); // Declare the addButton variable
+    const addButton = screen.getByRole("button", { name: "Add item" });
     userEvent.click(screen.getByRole("button", { name: "Add item" }));
-    await screen.findByText("Add new item to the list"); // Ensures modal has opened
+    await screen.findByText("Add new item to the list");
 
     const imagePathInput = screen.getByTestId("imagePath");
     const titleInput = screen.getByTestId("title");
@@ -67,9 +66,8 @@ describe("Form Component", () => {
     userEvent.type(descriptionInput, "Sample Description");
 
     const submitButton = screen.getByRole("button", { name: "Add" });
-    userEvent.click(submitButton); // Using userEvent for a more accurate simulation
+    userEvent.click(submitButton);
 
-    // Wait for the modal to close, indicated by the absence of the submit button
     await waitFor(() => {
       expect(addButton).toBeInTheDocument();
     });

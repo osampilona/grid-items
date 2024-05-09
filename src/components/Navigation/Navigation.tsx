@@ -1,5 +1,5 @@
-import Form from "./Form";
-import Search from "./Search";
+import Form from "../Form/Form";
+import Search from "../Search/Search";
 
 const Navigation = () => {
   return (

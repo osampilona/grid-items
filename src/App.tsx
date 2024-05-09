@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
-import CustomPagination from "./components/CustomPagination";
-import Navigation from "./components/Navigation";
-import Tiles from "./components/Tiles";
+import CustomPagination from "./components/CustomPagination/CustomPagination";
+import Navigation from "./components/Navigation/Navigation";
+import Tiles from "./components/Tiles/Tiles";
 import { store } from "./state/store";
 
 const App = () => {

@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardBody } from "@nextui-org/card";
 import { Image } from "@nextui-org/react";
-import { RootState } from "../state/store";
+import { RootState } from "../../state/store";
 import { useSelector } from "react-redux";
 
 const Tiles = () => {
