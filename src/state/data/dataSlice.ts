@@ -1,12 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import items from "../../data/grid-items.json";
+import { Item } from "../../types/reduxTypes";
 
 interface DataSlice {
-  items: {
-    title: string;
-    description: string;
-    imagePath: string;
-  }[];
+  items: Item[];
 }
 
 const initialState: DataSlice = {
