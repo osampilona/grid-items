@@ -1,30 +1,59 @@
-# React + TypeScript + Vite
+# Grid Items
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+Grid Items is a private, module-type JavaScript project utilizing Vite and React. This project is designed to work with advanced UI components using @nextui-org/react and state management via @reduxjs/toolkit.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
 
-## Expanding the ESLint configuration
+Before you begin, ensure you have the latest version of Node.js and npm installed on your machine.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Getting Started
 
-- Configure the top-level `parserOptions` property like this:
+### Description
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+Grid Items is a private, module-type JavaScript project utilizing Vite and React. This project is designed to work with advanced UI components using @nextui-org/react and state management via @reduxjs/toolkit.
+
+### Cloning the Repository
+
+To clone the repository and access the project, run the following command:
+
+```bash
+git clone <git@github.com:osampilona/grid-items.git>
+cd grid-items
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Installing Dependencies
+
+Install the necessary dependencies by running:
+
+```bash
+npm install
+```
+
+### Running the Application Locally
+
+To start the development server, use:
+
+```bash
+npm run dev
+```
+
+This command uses Vite for a fast development environment. Your project should be available at http://localhost:5173/.
+
+### Testing
+
+This project uses Vitest for testing. To run tests, execute:
+
+```bash
+npm run test
+```
+
+This command runs the tests with coverage reporting and a user interface for interactive test runs.
+
+## NOTE:
+
+If you don't want to run the project locally, here is deployed version of it:
+https://planday-martina.netlify.app
+
+Tests has to be run locally.
