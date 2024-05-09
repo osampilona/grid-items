@@ -14,7 +14,6 @@ describe("Tiles Component", () => {
   });
 
   it("renders items correctly", () => {
-    // Mock items data
     const mockItems = [
       {
         title: "Item 1",
@@ -38,15 +37,11 @@ describe("Tiles Component", () => {
       },
     ];
 
-    // Mock Redux state
     store.dispatch({ type: "SET_ITEMS", payload: mockItems });
 
-    // Check if items are rendered
     const itemElements = screen.getAllByTestId("card");
     expect(itemElements.length).toBe(mockItems.length);
 
-    // Check if each item displays the correct title and description
-    // Check if each item displays the correct title and description
     mockItems.forEach(async (item) => {
       const titleElement = await screen.findByText(item.title);
       expect(titleElement).toBeInTheDocument();

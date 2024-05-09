@@ -38,9 +38,8 @@ describe("dataSlice", () => {
       imagePath: "image.jpg",
     };
 
-    // Dispatch an initial item
     store.dispatch(setItem(existingItem));
-    // Dispatch a new item
+
     store.dispatch(setItem(newFirstItem));
 
     const items = store.getState().data.items;
