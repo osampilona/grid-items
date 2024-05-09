@@ -12,7 +12,7 @@ import {
 import { Textarea } from "@nextui-org/input";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setItem } from "../state/data/dataSlice";
+import { setItem } from "../../state/data/dataSlice";
 
 const Form = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();

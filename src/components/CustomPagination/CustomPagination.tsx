@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setCurrentPage,
   setShowAllItems,
-} from "../state/pagination/paginationSlice";
-import { RootState } from "../state/store";
+} from "../../state/pagination/paginationSlice";
+import { RootState } from "../../state/store";
 import { Button } from "@nextui-org/react";
 
 const CustomPagination = () => {

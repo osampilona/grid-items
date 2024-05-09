@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import Tiles from "./Tiles";
 import { Provider } from "react-redux";
-import { store } from "../state/store";
+import { store } from "../../state/store";
 
 describe("Tiles Component", () => {
   beforeEach(() => {

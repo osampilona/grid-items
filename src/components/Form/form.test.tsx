@@ -3,7 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import Form from "./Form";
-import { store } from "../state/store";
+import { store } from "../../state/store";
 
 describe("Form Component", () => {
   beforeEach(() => {

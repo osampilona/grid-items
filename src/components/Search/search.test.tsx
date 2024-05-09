@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Search from "./Search";
 import { Provider } from "react-redux";
-import { store } from "../state/store";
+import { store } from "../../state/store";
 
 describe("Search Component", () => {
   beforeEach(() => {
